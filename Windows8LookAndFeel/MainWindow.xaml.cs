@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 
-namespace GridViewWPF
+namespace Windows8LookAndFeel
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,17 +22,13 @@ namespace GridViewWPF
     {
         public MainWindow()
         {
-            //Modern Look and Feel
-            //StyleManager.ApplicationTheme = new Windows8Theme();
-            // Touch Theme Applied
-            //StyleManager.ApplicationTheme = new Windows8TouchTheme();
             InitializeComponent();
-            Loaded += MainWindow_Loaded;
         }
 
-        void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void TileList1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            radGridView.ItemsSource = EmployeeService.GetEmployees();
+            var selectedItem = TileList1.SelectedItem as Tile;
+            MessageBox.Show(selectedItem.Name);
         }
     }
 }
